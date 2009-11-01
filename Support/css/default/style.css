@@ -1,0 +1,71 @@
+/*
+This style sheet is designed to work only with webkit:
+http://qooxdoo.org/documentation/general/webkit_css_styles
+*/
+
+/* Global */
+/*table {border-collapse:collapse;}*/
+
+/* Summary table */
+
+.summarycontainer { margin:0 auto; background:#CCC; -webkit-box-shadow: 3px 3px 3px #5D5D5D; -webkit-border-radius: 6px;}
+.summary th { background:#e7e7e7; font-weight:bold; text-align:left; padding: 5px 10px; border-left: 1px solid #D8D8D8; color:black; }
+.summary td { background:#fff; text-align:center; padding: 8px 0px; color:black;}
+
+.summary td.p1 { background:#ff9999; }
+.summary td.p2 { background:#ffcc66; }
+.summary td.p3 { background:#ffff99; }
+.summary td.p4 { background:#99ff99; }
+.summary td.p5 { background:#9999ff; }
+
+/* Boxes containing each file and it's violations */
+.result { 
+	position: relative;
+	color: black;
+	background:#CCC; 
+	padding-top: 15px;
+	-webkit-box-shadow: 3px 3px 3px #5F5F5F; 
+	-webkit-border-radius: 6px;
+}
+
+.runner a { color: black; text-decoration: none;	}
+
+.result h2 { padding-left: 10px;}
+.package { position: absolute; top:38px;left: 10px; font-size: 10px; padding-bottom: 5px; }
+.violationcount { position: absolute; font-size: 30px; right: 25px; top: 10px; }
+.result a { position: absolute; padding-left: 10px; text-decoration: none; color: black; right: 10px; top: 24px;}
+
+/* Each detail table*/
+.details tr th {
+	color: black;
+	background:#e1e1e1;
+	font-weight:bold;
+	text-align:left;
+	padding: 4px 10px;
+}
+
+.details tr td { 
+	color: black;
+	background:#F9F9F9;
+	padding: 0px 5px;
+	border: 1px solid #e1e1e1;
+}
+
+.details tr td.linkline a { 
+	position: static;
+	display: block;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.details tr td.linkline a:hover {
+   /*background-color: #CCCCCC;*/
+   color: #3F3F3F;
+}
+
+.desc { padding: 10px; }
+
+.console {
+	font-family: "Monaco", fixed;
+	font-size: 9px;
+}

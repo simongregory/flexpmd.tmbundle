@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>ohaqyrf@uryirpgbe.bet</string>
+	<key>contactName</key>
+	<string>Simon Gregory</string>
+	<key>description</key>
+	<string>FlexPMD is a static ruleset based ActionScript 3 source code analyser that identifies potential problems, based on PMD.</string>
+	<key>name</key>
+	<string>FlexPMD</string>
+	<key>ordering</key>
+	<array>
+		<string>32F6AED2-A509-4157-BC24-81C8C487188D</string>
+		<string>19F3B15F-D665-4B67-A49E-A94816FF811F</string>
+		<string>3E82C616-2063-4054-89A1-50086989209D</string>
+	</array>
+	<key>uuid</key>
+	<string>C8771FBF-F67F-4BE1-AF5F-8227F6E7AFE9</string>
+</dict>
+</plist>
