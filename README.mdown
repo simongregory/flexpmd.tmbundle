@@ -1,12 +1,11 @@
 # TextMate FlexPMD Bundle
 
-This bundle gives TextMate support for [FlexPMD](http://opensource.adobe.com/wiki/display/flexpmd/FlexPMD/).
+This bundle gives [TextMate](http://www.macromates.com) support for [FlexPMD](http://opensource.adobe.com/wiki/display/flexpmd/FlexPMD/).
 
 The bundle is currently experimental, as such it expects the following:
 
  * Source files to be in a saved TextMate project.
  * ActionScript and MXML source files to be a directory named 'src'
- * FlexPMD report file is hardcoded to `$TM_PROJECT_DIRECTORY/reports/flexpmd/pmd.xml`
  
 ## Installation
 
@@ -25,9 +24,18 @@ Then select 'Bundles > Bundle Editor > Reload Bundles' from TextMate's menus
 
 Source can be viewed and forked via [GitHub](http://github.com/simongregory/flexpmd.tmbundle/tree/master)
 
+## Configuration
+
+By default the the FlexPMD report file will be created in the directory
+`$TM_PROJECT_DIRECTORY/reports/flexpmd/`. To override this set the env var 
+`TM_FLEXPMD_REPORT` to your desired directory (it doesn't seem 
+possible to change the name of the outputted file).
+
+To specify a custom ruleset specify it's path using the env var `TM_FLEXPMD_RULESET`.
+
 ## Support
 
-Please use the [TextMate Users mailing list](http://lists.macromates.com/listinfo/textmate).
+Please use the [TextMate Users](http://lists.macromates.com/listinfo/textmate) mailing list.
 
 ## License
 
