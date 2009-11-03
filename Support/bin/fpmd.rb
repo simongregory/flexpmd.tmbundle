@@ -36,4 +36,6 @@ else
 
 end
 
+tool.hide_output
+
 html_footer

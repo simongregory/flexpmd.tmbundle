@@ -2,15 +2,17 @@
 
 module FlexPMD
 
+  # Ruby proxy to the FlexPMD build tool.
+  #
   class Tool
-    
+
     attr_reader :jar
-    
+
     attr_accessor :src,
                   :report,
                   :ruleset,
                   :doc
-                  
+
     def initialize(doc_only=false)
       @doc      = doc_only
       @jar      = e_sh("#{bundle_root}/jar/flex-pmd-command-line-1.0.Rc4.jar")
@@ -18,15 +20,15 @@ module FlexPMD
       @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
       @ruleset  = ENV['TM_FLEXPMD_RULESET']
     end
-    
+
     def cmd
       c = "java -Xms64m -Xmx768m -jar #{jar} -s #{src} -o #{report}"
       c += "-r #{e_sh(ruleset)}" if ruleset
       c
     end
-    
+
     def run
-      
+
       puts '<h1>Running...</h1>'
       puts '<div class="runner"><span class="showhide">'
       puts "<a href=\"javascript:hideElement('runner')\" id='runner_h' style=''>&#x25BC;</a>"
@@ -42,25 +44,29 @@ module FlexPMD
 
       puts '</code>'
       puts '</div>'
-      
+
+    end
+
+    def hide_output
+      puts "<script>javascript:hideElement('runner')</script>"
     end
 
     protected
-    
+
     def bundle_root
       File.expand_path(File.dirname(__FILE__)+'/../../')
     end
-    
+
   end
 end
 
 if __FILE__ == $0
 
-require "test/unit"
+  require "test/unit"
 
-class TestTool < Test::Unit::TestCase
-  def test_case_name
-    assert_equal(true, false)
+  class TestTool < Test::Unit::TestCase
+    def test_case_name
+      assert_equal(true, false)
+    end
   end
-end
 end
