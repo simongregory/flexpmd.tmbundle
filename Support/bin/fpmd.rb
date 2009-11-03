@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby -wKU
+# encoding: utf-8
 
 $: << File.expand_path(ENV['TM_SUPPORT_PATH'] + '/lib/')
 $: << File.expand_path(File.dirname(__FILE__) + '/../lib')

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby -wKU
+# encoding: utf-8
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/escape'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
@@ -17,9 +18,11 @@ puts "<h2>FlexPMD Help</h2>"
 puts "<p><a href='http://opensource.adobe.com/wiki/display/flexpmd/FlexPMD/'>FlexPMD</a> bundle is work in progress.</p>"
 puts "<h3>Compiler Options:</h3>"
 puts "<pre>"
+
 TextMate::Process.run(cmd) do |str|
   STDOUT << str
 end
+
 puts "</pre>"
 
 html_footer
