@@ -19,12 +19,12 @@ module FlexPMD
       @jar      = e_sh("#{bundle_root}/jar/flex-pmd-command-line-1.0.Rc4.jar")
       @src      = doc == true ? e_sh(File.dirname(ENV['TM_FILEPATH'])) : e_sh(ENV['TM_PROJECT_DIRECTORY']+'/src')
       @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
-      @ruleset  = ENV['TM_FLEXPMD_RULESET']
+      @ruleset  = e_sh(find_ruleset)
     end
 
     def cmd
       c = "java -Xms64m -Xmx768m -jar #{jar} -s #{src} -o #{report}"
-      c += "-r #{e_sh(ruleset)}" if ruleset
+      c += " -r #{e_sh(ruleset)}" unless ruleset.nil?
       c
     end
 
@@ -56,6 +56,21 @@ module FlexPMD
 
     def bundle_root
       File.expand_path(File.dirname(__FILE__)+'/../../')
+    end
+    
+    def find_ruleset
+      rs = ENV['TM_FLEXPMD_RULESET'] || false
+      pd = ENV['TM_PROJECT_DIRECTORY'] || false
+
+      if rs
+        return rs if File.exist?(rs)          
+      end
+      
+      if rs && pd
+        return "#{pd}/#{rs}" if File.exist?("#{pd}/#{rs}")
+      end
+      
+      nil
     end
 
   end
