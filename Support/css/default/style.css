@@ -58,6 +58,13 @@ http://qooxdoo.org/documentation/general/webkit_css_styles
 	text-decoration: underline;
 }
 
+.details td.p1 { background:#ff9999; width: 5px;}
+.details td.p2 { background:#ffcc66; width: 5px;}
+.details td.p3 { background:#ffff99; width: 5px;}
+.details td.p4 { background:#99ff99; width: 5px;}
+.details td.p5 { background:#9999ff; width: 5px;}
+
+
 .details tr td.linkline a:hover {
    /*background-color: #CCCCCC;*/
    color: #3F3F3F;

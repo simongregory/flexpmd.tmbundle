@@ -64,11 +64,13 @@
 				</xsl:attribute> 
 				<table cellspacing="0" width="100%" class="details">
 					<tr>
-						<th>Line</th>
+						<th/>
+						<th>Line</th>						
 						<th class="desc">Description</th>
 					</tr>
 					<xsl:for-each select="violation">
 					<tr>
+						<td><xsl:attribute name="class">p<xsl:value-of select="@priority"/></xsl:attribute></td>
 						<td class="linkline" >
 							<a><xsl:attribute name="href">txmt://open?url=file://<xsl:value-of select="../@name"/>&amp;line=<xsl:value-of disable-output-escaping="yes" select="@beginline"/>&amp;column=<xsl:value-of disable-output-escaping="yes" select="@begincolumn"/></xsl:attribute>
 							<xsl:value-of disable-output-escaping="yes" select="@beginline"/>

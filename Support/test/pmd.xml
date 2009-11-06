@@ -2,7 +2,12 @@
 <pmd version="4.2.1" timestamp="Fri Oct 30 16:36:39 GMT 2009">
 
    <file name="/Users/simon/Documents/test/test-br/src/uk/co/test/testFifty/competition/views/components/Bubble.as">
-      <violation beginline="62" endline="62" begincolumn="4" endcolumn="4" rule="adobe.ac.pmd.rules.component.AddChildNotInCreateChildren" ruleset="Custom component rules" package="uk.co.test.testFifty.competition.views.components" class="Bubble.as" externalInfoUrl="" priority="1">Flex specific - You must add child only inside the createChildren method</violation>
+      <violation 
+		beginline="62" endline="62" begincolumn="4" endcolumn="4" 
+		rule="adobe.ac.pmd.rules.component.AddChildNotInCreateChildren" 
+		ruleset="Custom component rules" 
+		package="uk.co.test.testFifty.competition.views.components" 
+		class="Bubble.as" externalInfoUrl="" priority="1">Flex specific - You must add child only inside the createChildren method</violation>
       <violation beginline="95" endline="95" begincolumn="5" endcolumn="5" rule="adobe.ac.pmd.rules.component.AddChildNotInCreateChildren" ruleset="Custom component rules" package="uk.co.test.testFifty.competition.views.components" class="Bubble.as" externalInfoUrl="" priority="1">Flex specific - You must add child only inside the createChildren method</violation>
       <violation beginline="-1" endline="-1" begincolumn="-1" endcolumn="46" rule="adobe.ac.pmd.rules.naming.PackageCase" ruleset="Naming Rules" package="uk.co.test.testFifty.competition.views.components" class="Bubble.as" externalInfoUrl="" priority="3">A package name should be lower case (uk.co.test.testFifty.competition.views.components). Detects when a package definition contains upper case characters</violation>
       <violation beginline="36" endline="36" begincolumn="17" endcolumn="17" rule="adobe.ac.pmd.rules.maintanability.ArrayFieldWithNoArrayElementType" ruleset="Maintanability Rules" package="uk.co.test.testFifty.competition.views.components" class="Bubble.as" externalInfoUrl="" priority="3">ArrayElementType metadata is not specified for this array-type field (_images). 
