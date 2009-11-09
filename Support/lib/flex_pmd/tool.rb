@@ -3,7 +3,7 @@
 
 module FlexPMD
 
-  # Ruby proxy to the FlexPMD build tool.
+  # Ruby wrapper for the FlexPMD build tool.
   #
   class Tool
 
@@ -20,11 +20,12 @@ module FlexPMD
       @src      = doc == true ? e_sh(File.dirname(ENV['TM_FILEPATH'])) : e_sh(ENV['TM_PROJECT_DIRECTORY']+'/src')
       @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
       @ruleset  = e_sh(find_ruleset)
+      puts @ruleset
     end
 
     def cmd
       c = "java -Xms64m -Xmx768m -jar #{jar} -s #{src} -o #{report}"
-      c += " -r #{e_sh(ruleset)}" unless ruleset.nil?
+      c += " -r #{ruleset}" unless ruleset == "''"
       c
     end
 
@@ -70,7 +71,7 @@ module FlexPMD
         return "#{pd}/#{rs}" if File.exist?("#{pd}/#{rs}")
       end
       
-      nil
+      ''
     end
 
   end
