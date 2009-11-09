@@ -10,9 +10,9 @@ module FlexPMD
     attr_reader :jar
 
     attr_accessor :src,
-                  :report,
-                  :ruleset,
-                  :doc
+      :report,
+      :ruleset,
+      :doc
 
     def initialize(doc_only=false)
       @doc      = doc_only
@@ -20,7 +20,6 @@ module FlexPMD
       @src      = doc == true ? e_sh(File.dirname(ENV['TM_FILEPATH'])) : e_sh(ENV['TM_PROJECT_DIRECTORY']+'/src')
       @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
       @ruleset  = e_sh(find_ruleset)
-      puts @ruleset
     end
 
     def cmd
@@ -55,24 +54,24 @@ module FlexPMD
 
     protected
 
-    def bundle_root
-      File.expand_path(File.dirname(__FILE__)+'/../../')
-    end
-    
-    def find_ruleset
-      rs = ENV['TM_FLEXPMD_RULESET'] || false
-      pd = ENV['TM_PROJECT_DIRECTORY'] || false
+      def bundle_root
+        File.expand_path(File.dirname(__FILE__)+'/../../')
+      end
 
-      if rs
-        return rs if File.exist?(rs)          
+      def find_ruleset
+        rs = ENV['TM_FLEXPMD_RULESET'] || false
+        pd = ENV['TM_PROJECT_DIRECTORY'] || false
+
+        if rs
+          return rs if File.exist?(rs)
+        end
+
+        if rs && pd
+          return "#{pd}/#{rs}" if File.exist?("#{pd}/#{rs}")
+        end
+
+        ''
       end
-      
-      if rs && pd
-        return "#{pd}/#{rs}" if File.exist?("#{pd}/#{rs}")
-      end
-      
-      ''
-    end
 
   end
 end

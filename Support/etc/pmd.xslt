@@ -34,11 +34,23 @@
 	
 	<xsl:for-each select="file">
 		<xsl:sort data-type="number" order="descending" select="count(violation)"/>
-		<!-- TODO: Include mxml -->
-		<xsl:variable name="klass" select="substring-before(violation[1]/@class,'.as')" disable-output-escaping="yes"/>
+
+		<xsl:variable name="asclass" select="substring-before(violation[1]/@class,'.as')" disable-output-escaping="yes"/>
 		<xsl:variable name="package" select="violation[1]/@package" disable-output-escaping="yes"/>
-		<xsl:variable name="itemid" select="$klass" />
 		
+		<xsl:variable name="klass">
+			<xsl:choose>
+			    <xsl:when test="string($asclass) = ''">
+			      <xsl:value-of select="substring-before(violation[1]/@class,'.mxml')"/>
+			    </xsl:when>
+			    <xsl:otherwise>
+			      <xsl:value-of select="$asclass"/>
+			    </xsl:otherwise>
+		  	</xsl:choose>
+		</xsl:variable>
+		
+		<xsl:variable name="itemid" select="$klass" />
+					
 		<div class="result">
 			<h2><xsl:value-of select="$klass"/></h2>
 			<div class="package"><xsl:value-of select="$package"/>.<xsl:value-of select="$klass"/></div>
