@@ -8,6 +8,9 @@ module FlexPMD
   # Output is specifically formatted in html for use in TextMate.
   #
   class Tool
+    
+    # The version of the Flex PMD tool to target.
+    FLEX_PMD_VERSION = '1.0'
 
     attr_reader :jar
 
@@ -21,7 +24,7 @@ module FlexPMD
     #
     def initialize(doc_only=false)
       @doc      = doc_only
-      @jar      = e_sh("#{bundle_root}/jar/flex-pmd-command-line-1.0.Rc4.jar")
+      @jar      = e_sh("#{bundle_root}/jar/flex-pmd-command-line-#{FLEX_PMD_VERSION}.jar")
       @src      = doc == true ? e_sh(File.dirname(ENV['TM_FILEPATH'])) : e_sh(ENV['TM_PROJECT_DIRECTORY']+'/src')
       @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
       @ruleset  = e_sh(find_ruleset)
