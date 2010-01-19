@@ -1,13 +1,18 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
+# =Overview
+#
+# Command line access to the flexpmd tool to enable flex pmd to run from within
+# TextMate.
+#
+
 $: << File.expand_path(ENV['TM_SUPPORT_PATH'] + '/lib/')
 $: << File.expand_path(File.dirname(__FILE__) + '/../lib')
 
 require 'textmate'
 require 'tm/process'
 require 'web_preview'
-
 require 'flex_pmd/transformer'
 require 'flex_pmd/tool'
 

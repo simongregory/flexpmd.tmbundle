@@ -1,27 +1,37 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
-# Class to encapsulate configuration settings
-#
 module FlexPMD
-
+  
+  # Class to encapsulate configuration settings. This class is awaiting integration
+  # into the project.
+  #
   class Settings
-
+    
+    # Returns the path to the pmd xlst document.
+    #
     def xslt
       return ENV['TM_FLEXPMD_REPORT_XSLT'] unless ENV['TM_FLEXPMD_REPORT_XSLT'].nil?
       ENV['TM_BUNDLE_SUPPORT']+'/etc/pmd.xslt'
     end
 
+    # Returns the path to the pmd xml report document.
+    #
     def report
       return ENV['TM_FLEXPMD_REPORT'] unless ENV['TM_FLEXPMD_REPORT'].nil?
       ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd/pmd.xml'
     end
 
+    # Returns the path to the pmd ruleset document.
+    #
     def ruleset
       return ENV['TM_FLEXPMD_RULESET'] unless ENV['TM_FLEXPMD_RULESET'].nil?
       nil
     end
-
+    
+    # Returns a boolean to indicate if the user is working within a TextMate
+    # project.
+    #
     def has_tm_proj?
       return !ENV['TM_PROJECT_DIRECTORY'].nil?
     end
@@ -33,7 +43,9 @@ end
 if __FILE__ == $0
 
   require "test/unit"
-
+  
+  # Tests cases for the Settings class.
+  #
   class TestSettings < Test::Unit::TestCase
     def test_settings
       s = FlexPMD::Settings.new

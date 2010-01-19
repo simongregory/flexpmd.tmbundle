@@ -5,7 +5,7 @@ This bundle gives [TextMate](http://www.macromates.com) support for [FlexPMD](ht
 The bundle is currently experimental, as such it expects the following:
 
  * Source files to be in a saved TextMate project.
- * ActionScript and MXML source files to be a directory named 'src'
+ * ActionScript and MXML source files to be in a directory named 'src'
  
 ## Installation
 

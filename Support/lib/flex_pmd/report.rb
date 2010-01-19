@@ -1,8 +1,16 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
+# =Overview
+#
+# Logical container for classes whose function it is to deserialise a flex pmd
+# xml report. Once deserialiased data can then be accessed or output to html
+# compatible with TextMate.
+#
 module FlexPmd
-
+  
+  # Class to represent the top level Report node.
+  #
   class Report
 
     attr_reader :version,
@@ -27,30 +35,32 @@ module FlexPmd
 
     protected
 
-      def deserialize(doc)
+    def deserialize(doc)
 
-        require 'rexml/document'
+      require 'rexml/document'
 
-        report = REXML::Document.new(doc)
+      report = REXML::Document.new(doc)
 
-        node = report.root
+      node = report.root
 
-        if node.name == 'pmd'
+      if node.name == 'pmd'
 
-          @version = node.attributes['version']
-          @timestamp = node.attributes['timestamp']
+        @version = node.attributes['version']
+        @timestamp = node.attributes['timestamp']
 
-          node.elements.each do |child|
-            name = child.name()
-            @files << ClassFile.new(self,child) if name == 'file'
-          end
-
+        node.elements.each do |child|
+          name = child.name()
+          @files << ClassFile.new(self,child) if name == 'file'
         end
 
       end
 
+    end
+
   end
 
+  # Class to represent violations found at class level.
+  #
   class ClassFile
 
     attr_reader :parent,
@@ -77,7 +87,9 @@ module FlexPmd
       end
 
   end
-
+  
+  # Class to represent a PMD violation.
+  #
   class Violation
 
     attr_reader :parent,
@@ -104,19 +116,19 @@ module FlexPmd
 
     protected
 
-      def deserialize(node)
-        @beginline       = node.attributes['beginline']
-        @endline         = node.attributes['endline']
-        @begincolumn     = node.attributes['begincolumn']
-        @endcolumn       = node.attributes['endcolumn']
-        @rule            = node.attributes['rule']
-        @rule_set        = node.attributes['rule_set']
-        @package         = node.attributes['package']
-        @klass           = node.attributes['class']
-        @priority        = node.attributes['priority']
-        @externalInfoUrl = node.attributes['externalInfoUrl']
-        @message         = node.text
-      end
+    def deserialize(node)
+      @beginline       = node.attributes['beginline']
+      @endline         = node.attributes['endline']
+      @begincolumn     = node.attributes['begincolumn']
+      @endcolumn       = node.attributes['endcolumn']
+      @rule            = node.attributes['rule']
+      @rule_set        = node.attributes['rule_set']
+      @package         = node.attributes['package']
+      @klass           = node.attributes['class']
+      @priority        = node.attributes['priority']
+      @externalInfoUrl = node.attributes['externalInfoUrl']
+      @message         = node.text
+    end
 
   end
 

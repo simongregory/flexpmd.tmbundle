@@ -1,28 +1,34 @@
 #!/usr/bin/env ruby -wKU
 # encoding: utf-8
 
-require ENV['TM_SUPPORT_PATH'] + '/lib/escape'
-require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
-require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
-require ENV['TM_SUPPORT_PATH'] + '/lib/web_preview'
+# = Overview
+#
+# Quick script to provide some help for the flexpmd tool. It may be usefull in
+# the future to plumb this into the bundle help command. For now hit CMD-R for a
+# list of available options.
+#
 
-BUNDLE_ROOT = File.expand_path(File.dirname(__FILE__)+'/../')
+$: << File.expand_path(ENV['TM_SUPPORT_PATH'] + '/lib/')
+$: << File.expand_path(File.dirname(__FILE__) + '/../lib')
 
-jar = e_sh("#{BUNDLE_ROOT}/jar/flex-pmd-command-line-1.0.Rc4.jar")
-cmd = "java -jar #{jar}"
+require 'tm/process'
+require 'textmate'
+require 'web_preview'
+require 'flex_pmd/tool'
 
-puts html_head( :window_title => "FlexPMD Help",
-                :page_title => "FlexPMD Help")
+# NOTE: Commented out for now.
+#
+# puts html_head( :window_title => "FlexPMD Help",
+#                 :page_title => "FlexPMD Help")
+# 
+# puts "<h2>FlexPMD Help</h2>"
+# puts "<p><a href='http://opensource.adobe.com/wiki/display/flexpmd/FlexPMD/'>FlexPMD</a> bundle is work in progress.</p>"
+# puts "<h3>Compiler Options:</h3>"
+# puts "<pre>"
 
-puts "<h2>FlexPMD Help</h2>"
-puts "<p><a href='http://opensource.adobe.com/wiki/display/flexpmd/FlexPMD/'>FlexPMD</a> bundle is work in progress.</p>"
-puts "<h3>Compiler Options:</h3>"
-puts "<pre>"
+tool = FlexPMD::Tool.new
+tool.show_options
 
-TextMate::Process.run(cmd) do |str|
-  STDOUT << str
-end
-
-puts "</pre>"
-
-html_footer
+# puts "</pre>"
+# 
+# html_footer
