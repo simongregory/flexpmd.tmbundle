@@ -26,7 +26,7 @@ module FlexPMD
       @doc      = doc_only
       @jar      = e_sh("#{bundle_root}/jar/flex-pmd-command-line-#{FLEX_PMD_VERSION}.jar")
       @src      = doc == true ? e_sh(File.dirname(ENV['TM_FILEPATH'])) : e_sh(ENV['TM_PROJECT_DIRECTORY']+'/src')
-      @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd')
+      @report   = e_sh(ENV['TM_PROJECT_DIRECTORY']+'/report/flexpmd')
       @ruleset  = e_sh(find_ruleset)
     end
     

@@ -7,7 +7,7 @@
 #
 # The bundle follows a predefined set of rules, as such it expects that the xslt
 # file be located <tt>{TM_BUNDLE_SUPPORT}/etc/pmd.xslt</tt> and the flex.pmd
-# report file is in <tt>{TM_PROJECT_DIRECTORY}/reports/flexpmd/pmd.xml</tt>.
+# report file is in <tt>{TM_PROJECT_DIRECTORY}/report/flexpmd/pmd.xml</tt>.
 #
 # Users can override the default locations by setting the +TM_FLEXPMD_REPORT_XSLT+
 # and +TM_FLEXPMD_REPORT+ environmental variables.
@@ -50,7 +50,7 @@ class Transformer
   #
   def default_rep
     return ENV['TM_FLEXPMD_REPORT'] unless ENV['TM_FLEXPMD_REPORT'].nil?
-    ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd/pmd.xml'
+    ENV['TM_PROJECT_DIRECTORY']+'/report/flexpmd/pmd.xml'
   end
 
 end

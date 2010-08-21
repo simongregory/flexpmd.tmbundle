@@ -19,7 +19,7 @@ module FlexPMD
     #
     def report
       return ENV['TM_FLEXPMD_REPORT'] unless ENV['TM_FLEXPMD_REPORT'].nil?
-      ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd/pmd.xml'
+      ENV['TM_PROJECT_DIRECTORY']+'/report/flexpmd/pmd.xml'
     end
 
     # Returns the path to the pmd ruleset document.
@@ -53,7 +53,7 @@ if __FILE__ == $0
       assert_equal(true, s.has_tm_proj?)
       assert_equal(nil, s.ruleset)
 
-      assert_equal(ENV['TM_PROJECT_DIRECTORY']+'/reports/flexpmd/pmd.xml', s.report)
+      assert_equal(ENV['TM_PROJECT_DIRECTORY']+'/report/flexpmd/pmd.xml', s.report)
       assert_equal(ENV['TM_BUNDLE_SUPPORT']+'/etc/pmd.xslt', s.xslt)
 
       ENV['TM_FLEXPMD_RULESET'] = 'fake/path/rules.xml'

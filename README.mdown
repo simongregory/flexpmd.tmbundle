@@ -27,7 +27,7 @@ Source can be viewed and forked via [GitHub](http://github.com/simongregory/flex
 ## Configuration
 
 By default the the FlexPMD report file will be created in the directory
-`$TM_PROJECT_DIRECTORY/reports/flexpmd/`. To override this set the env var 
+`$TM_PROJECT_DIRECTORY/report/flexpmd/`. To override this set the env var 
 `TM_FLEXPMD_REPORT` to your desired directory (it doesn't seem 
 possible to change the name of the outputted file).
 
