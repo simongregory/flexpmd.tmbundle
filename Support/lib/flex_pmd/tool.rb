@@ -10,7 +10,7 @@ module FlexPMD
   class Tool
     
     # The version of the Flex PMD tool to target.
-    FLEX_PMD_VERSION = '1.1'
+    FLEX_PMD_VERSION = '1.2'
 
     attr_reader :jar
 
