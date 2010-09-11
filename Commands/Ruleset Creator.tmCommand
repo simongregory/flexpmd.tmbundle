@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>open "http://opensource.adobe.com/svn/opensource/flexpmd/bin/flex-pmd-ruleset-creator.html"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Ruleset Creator</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.actionscript.3, text.xml.mxml</string>
+	<key>uuid</key>
+	<string>A3010340-0393-44A1-A129-62E1CA3EA4F9</string>
+</dict>
+</plist>
